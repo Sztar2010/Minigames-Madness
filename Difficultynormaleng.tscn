@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://djvj5pcw4anv5"]
+
+[ext_resource type="Texture2D" uid="uid://c5xnnrgbjy1bb" path="res://minimal_menu_english.png" id="1_014hs"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -965.0
+offset_top = -542.0
+offset_right = 955.0
+offset_bottom = 538.0
+texture = ExtResource("1_014hs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -205.0
+offset_top = -46.0
+offset_right = 194.0
+offset_bottom = -23.0
+text = "Difficulty:Normal"
+horizontal_alignment = 1

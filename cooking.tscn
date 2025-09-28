@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmtftila7rw3x"]
+
+[ext_resource type="Texture2D" uid="uid://c7tsx8vnolse8" path="res://konyha.png" id="1_2xfj2"]
+[ext_resource type="Script" uid="uid://dj12dqrhenjki" path="res://cooking.gd" id="1_h7wos"]
+[ext_resource type="Texture2D" uid="uid://d2rplf1egloyy" path="res://chef hat.png" id="2_wpp4q"]
+[ext_resource type="Texture2D" uid="uid://bros5s7wmdqgu" path="res://hat.png" id="3_wpp4q"]
+[ext_resource type="Texture2D" uid="uid://duht21wt3sbei" path="res://tomato.png" id="4_nhrjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7wos"]
+size = Vector2(176, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp8nb"]
+size = Vector2(223, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xejm"]
+size = Vector2(337.75, 189.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqvdp"]
+size = Vector2(473, 36)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h7wos")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -985.0
+offset_top = -556.0
+offset_right = 960.0
+offset_bottom = 543.0
+texture = ExtResource("1_2xfj2")
+expand_mode = 1
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody2D"]
+offset_left = -321.0
+offset_top = 309.0
+offset_right = -150.0
+offset_bottom = 487.0
+texture = ExtResource("2_wpp4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-231, 395)
+shape = SubResource("RectangleShape2D_h7wos")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 637.0
+offset_top = 209.0
+offset_right = 962.0
+offset_bottom = 529.0
+texture = ExtResource("3_wpp4q")
+
+[node name="recept" type="HBoxContainer" parent="."]
+offset_left = 650.0
+offset_top = 278.0
+offset_right = 815.0
+offset_bottom = 318.0
+scale = Vector2(1.885, 1.885)
+
+[node name="Label" type="Label" parent="recept"]
+layout_mode = 2
+text = "Tomato with chicken "
+
+[node name="tomato" type="Area2D" parent="."]
+
+[node name="TextureRect3" type="TextureRect" parent="tomato"]
+offset_left = -419.0
+offset_top = -5.0
+offset_right = -137.0
+offset_bottom = 196.0
+texture = ExtResource("4_nhrjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomato"]
+position = Vector2(-268, 123)
+shape = SubResource("RectangleShape2D_wp8nb")
+
+[node name="chicken" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chicken"]
+position = Vector2(273.125, 155.625)
+shape = SubResource("RectangleShape2D_4xejm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-261, -275)
+shape = SubResource("RectangleShape2D_lqvdp")

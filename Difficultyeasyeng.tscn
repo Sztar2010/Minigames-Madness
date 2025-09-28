@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcc4q111u3b5a"]
+
+[ext_resource type="Texture2D" uid="uid://c5xnnrgbjy1bb" path="res://minimal_menu_english.png" id="1_m3mqq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="easymenu" type="TextureRect" parent="."]
+offset_left = -965.0
+offset_top = -542.0
+offset_right = 955.0
+offset_bottom = 538.0
+texture = ExtResource("1_m3mqq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -210.0
+offset_top = -52.0
+offset_right = 197.0
+offset_bottom = -29.0
+text = "Difficulty:Easy"
+horizontal_alignment = 1

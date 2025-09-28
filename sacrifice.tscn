@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfq53u0436cdg"]
+
+[ext_resource type="Script" uid="uid://cqqsn7bf4wimn" path="res://sacrifice.gd" id="1_5i03j"]
+[ext_resource type="Script" uid="uid://b6qmvn2m34t3d" path="res://yes.gd" id="1_f0hnw"]
+[ext_resource type="Script" uid="uid://dprwjt00w6f86" path="res://no.gd" id="2_ocibf"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5i03j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -969.0
+offset_top = -539.0
+offset_right = 962.0
+offset_bottom = 539.0
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+offset_left = -879.0
+offset_top = -466.0
+offset_right = -634.0
+offset_bottom = -434.0
+scale = Vector2(7.38, 7.38)
+
+[node name="Label" type="Label" parent="HSplitContainer"]
+layout_mode = 2
+text = "Will you sacrifice your eyesight?"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -734.0
+offset_top = -2.0
+offset_right = -686.0
+offset_bottom = 36.0
+scale = Vector2(8.69, 8.69)
+text = "yes"
+script = ExtResource("1_f0hnw")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 292.0
+offset_top = 2.0
+offset_right = 340.0
+offset_bottom = 40.0
+scale = Vector2(8.69, 8.69)
+text = "no"
+script = ExtResource("2_ocibf")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

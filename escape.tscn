@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq8ynygql8qj5"]
+
+[ext_resource type="Script" uid="uid://b04uowmmbejmq" path="res://escape.gd" id="1_fwpp2"]
+[ext_resource type="Script" uid="uid://b6wp3u4tnx8l3" path="res://character_body_2d.gd" id="1_jcl3f"]
+[ext_resource type="Texture2D" uid="uid://bh8w6ld3qvx13" path="res://Sprite-0001_transparent.png" id="2_3pjg4"]
+[ext_resource type="Script" uid="uid://fu8n4orbadav" path="res://enemy.gd" id="3_3pjg4"]
+[ext_resource type="Texture2D" uid="uid://d3ohywp3fo6g3" path="res://ai-generated-9789422_1280.webp" id="4_tmxt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmxt1"]
+size = Vector2(4048, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwpp2"]
+size = Vector2(26, 718.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w4k0"]
+size = Vector2(36.75, 656.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d55p"]
+size = Vector2(118, 423)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_npt6e"]
+radius = 24.0
+height = 110.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fwpp2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(666, 189.5)
+shape = SubResource("RectangleShape2D_tmxt1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2703, -149)
+shape = SubResource("RectangleShape2D_fwpp2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1378.63, -118.75)
+shape = SubResource("RectangleShape2D_4w4k0")
+
+[node name="finish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finish"]
+position = Vector2(885, -53)
+shape = SubResource("RectangleShape2D_8d55p")
+
+[node name="escape" type="CharacterBody2D" parent="."]
+script = ExtResource("1_jcl3f")
+
+[node name="TextureRect" type="TextureRect" parent="escape"]
+offset_left = -958.0
+offset_top = 49.0
+offset_right = -873.0
+offset_bottom = 172.0
+texture = ExtResource("2_3pjg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escape"]
+position = Vector2(-916, 108)
+shape = SubResource("CapsuleShape2D_npt6e")
+
+[node name="escape2" type="CharacterBody2D" parent="."]
+script = ExtResource("3_3pjg4")
+
+[node name="TextureRect" type="TextureRect" parent="escape2"]
+offset_left = -1357.0
+offset_top = 48.0
+offset_right = -1272.0
+offset_bottom = 171.0
+texture = ExtResource("4_tmxt1")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escape2"]
+position = Vector2(-1315, 107)
+shape = SubResource("CapsuleShape2D_npt6e")
+
+[connection signal="body_entered" from="finish" to="escape" method="_on_finish_body_entered"]
